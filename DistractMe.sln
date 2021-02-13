@@ -5,16 +5,30 @@ VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistractMe", "DistractMe\DistractMe.csproj", "{A214202B-8605-43FB-A0D4-2833184B640A}"
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "DistractMe.Wix.Setup", "DistractMe.Wix.Setup\DistractMe.Wix.Setup.wixproj", "{C2CA6F41-47D2-4988-A9A7-85994B2CD818}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A214202B-8605-43FB-A0D4-2833184B640A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A214202B-8605-43FB-A0D4-2833184B640A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A214202B-8605-43FB-A0D4-2833184B640A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A214202B-8605-43FB-A0D4-2833184B640A}.Debug|x86.Build.0 = Debug|Any CPU
 		{A214202B-8605-43FB-A0D4-2833184B640A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A214202B-8605-43FB-A0D4-2833184B640A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A214202B-8605-43FB-A0D4-2833184B640A}.Release|x86.ActiveCfg = Release|Any CPU
+		{A214202B-8605-43FB-A0D4-2833184B640A}.Release|x86.Build.0 = Release|Any CPU
+		{C2CA6F41-47D2-4988-A9A7-85994B2CD818}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C2CA6F41-47D2-4988-A9A7-85994B2CD818}.Debug|x86.ActiveCfg = Debug|x86
+		{C2CA6F41-47D2-4988-A9A7-85994B2CD818}.Debug|x86.Build.0 = Debug|x86
+		{C2CA6F41-47D2-4988-A9A7-85994B2CD818}.Release|Any CPU.ActiveCfg = Release|x86
+		{C2CA6F41-47D2-4988-A9A7-85994B2CD818}.Release|x86.ActiveCfg = Release|x86
+		{C2CA6F41-47D2-4988-A9A7-85994B2CD818}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

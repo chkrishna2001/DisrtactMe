@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define DistractMe_TargetDir=$(var.DistractMe.TargetDir)?>
+  <Product Id="8E192744-8503-4551-895A-3823FCC9B378" Name="DistractMe" Language="1033" Version="1.0.0.0" Manufacturer="Krishna Chirravuri" UpgradeCode="a3d6ab75-41b9-4b56-9fb8-ff300ed0b86c">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade Schedule="afterInstallInitialize" DowngradeErrorMessage="A newer version of [ProductName] is already installed." Disallow="yes" DisallowUpgradeErrorMessage="Old version of the application will be removed" />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Feature Id="ProductFeature" Title="DistractMe" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+    <UI>
+      <UIRef Id="WixUI_Minimal" />
+      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+    </UI>
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch DistractMe after installation completed." />
+    <Property Id="WixShellExecTarget" Value="[#DistractMe.exe]" />
+    <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="DistractMe" />
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="DistractMe.exe" Guid="76c9644e-c08f-49f0-8a7d-014c9e6617ef">
+        <File Id="DistractMe.exe" Name="DistractMe.exe" Source="$(var.DistractMe_TargetDir)DistractMe.exe" />
+      </Component>
+      <Component Id="DistractMe.exe.config" Guid="24d1aa63-856a-44b3-933f-f7dfeeb37615">
+        <File Id="DistractMe.exe.config" Name="DistractMe.exe.config" Source="$(var.DistractMe_TargetDir)DistractMe.exe.config" />
+      </Component>
+      <Component Id="Newtonsoft.Json.dll" Guid="99c312ec-dad6-4aab-976d-85dedf4b11cf">
+        <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Source="$(var.DistractMe_TargetDir)Newtonsoft.Json.dll" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
