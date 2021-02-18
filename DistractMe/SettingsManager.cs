@@ -1,10 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DistractMe
 {
@@ -14,17 +10,7 @@ namespace DistractMe
         public SettingsManager()
         {
             settingsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "DistractMe", "settings.json");
-        }
-        public UserSettings Get()
-        {
-            if (File.Exists(settingsPath))
-            {
-                using (StreamReader sr = new StreamReader(settingsPath))
-                {
-                    return JsonConvert.DeserializeObject<UserSettings>(sr.ReadToEnd());
-                }
-            }
-            else
+            if (!File.Exists(settingsPath))
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(settingsPath));
                 UserSettings settings = new UserSettings();
@@ -37,7 +23,13 @@ namespace DistractMe
                     "stretch a little bit"
                 };
                 SaveSettings(settings);
-                return settings;
+            }
+        }
+        public UserSettings Get()
+        {
+            using (StreamReader sr = new StreamReader(settingsPath))
+            {
+                return JsonConvert.DeserializeObject<UserSettings>(sr.ReadToEnd());
             }
         }
         public void SaveSettings(UserSettings settings)
