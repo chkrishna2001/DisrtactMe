@@ -57,19 +57,32 @@ namespace DistractMe
         }
         private List<Label> getLabels(List<string> messages)
         {
-            var labelY = this.Location.Y / messages.Count;
-            return messages.Select((m, i) =>
+            try
             {
-                var location = new Point(10, ((i+1)*100));
-                return new Label()
+                var labelY = this.Location.Y / messages.Count;
+                return messages.Select((m, i) =>
                 {
-                    ForeColor = Color.White,
-                    Font = new Font("Verdana", 20),
-                    AutoSize = true,
-                    Location = location,
-                    Text = m,
-                };
-            }).ToList();
+                    var location = new Point(10, ((i + 1) * 100));
+                    return new Label()
+                    {
+                        ForeColor = Color.White,
+                        Font = new Font("Verdana", 20),
+                        AutoSize = true,
+                        Location = location,
+                        Text = m,
+                    };
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                this.Bounds = new Rectangle(11, 11, 11, 11);
+            }
+            return new List<Label>() {  };
+        }
+
+        private void Distractor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Cursor.Show();
         }
     }
 }
