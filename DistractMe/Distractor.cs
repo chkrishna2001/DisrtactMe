@@ -52,8 +52,6 @@ namespace DistractMe
             {
                 item.Location = new Point(item.Location.X + 10, item.Location.Y + 10);
             }
-
-
         }
         private List<Label> getLabels(List<string> messages)
         {

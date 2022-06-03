@@ -22,7 +22,8 @@
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLFOLDER" Name="DistractMe" />
+		  <Directory Id="INSTALLFOLDER" Name="DistractMe" >
+		  </Directory>
       </Directory>
     </Directory>
   </Fragment>
@@ -37,6 +38,9 @@
       </Component>
       <Component Id="Newtonsoft.Json.dll" Guid="99c312ec-dad6-4aab-976d-85dedf4b11cf">
         <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Source="$(var.DistractMe_TargetDir)Newtonsoft.Json.dll" />
+      </Component>
+      <Component Id="breaktime.ico" Guid="3892e7be-bbbb-4cf3-b94f-5ae0b331929c">
+        <File Id="breaktime.ico" Name="breaktime.ico" Source="$(var.DistractMe_TargetDir)breaktime.ico" />
       </Component>
     </ComponentGroup>
   </Fragment>
